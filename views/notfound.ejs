@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= subreddit %></title>
+  </head>
+<body>
+  <h1>Hmm...🤔</h1>
+  <p>Sorry, we couldn't find the subreddit you were looking for.</p>
+  <hr>
+  <p>Try searching for another one!</p>
+  <form action="/search" method="GET">
+    <input type="text" name="subreddit" placeholder="Search subreddit..."
+      aria-label="Search"
+    >
+    <button type="submit">Search</button>
+  <p>
+    or <a href="/">go back home</a>
+  </p>
+</body>
+</html>
