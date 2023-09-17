@@ -67,7 +67,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.send('Path unknown');
+  res.render('notfound', { name: 'Hmm...🤔' });
 });
 
 app.listen(3000, () => {
