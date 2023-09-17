@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.get ('/', (req, res) => {
     const date = new Date();
     res.render('home',
-      { date: date }
+      { date: date, name: 'Home' }
     );
 });
 
@@ -25,13 +25,11 @@ app.get ('/', (req, res) => {
 app.get('/r/:subreddit', (req, res) => {
   const { subreddit } = req.params;
   const data = redditData[subreddit];
-  console.log(data)
   if (data) {
     res.render('subreddit', {  ...data });
   } else {
     res.render('notfound', { subreddit })
   }
-
 });
 
 
@@ -52,7 +50,10 @@ app.get('/dogs', (req, res) => {
 app.get('/rand', (req, res) => {
   const num = Math.floor(Math.random() * 10) + 1;
   res.render('random',
-    { rand: num }
+    {
+      rand: num,
+      name: 'Random number'
+    }
   );
 });
 
@@ -66,7 +67,7 @@ app.get('/search', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.send('Path unknown');
+  res.render('notfound', { name: 'Hmm...🤔' });
 });
 
 app.listen(3000, () => {
